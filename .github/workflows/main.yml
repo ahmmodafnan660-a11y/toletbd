@@ -14,7 +14,7 @@ jobs:
       - name: Build
         run: |
           flutter create tolet_app
-          cp main.dart tolet_app/lib/main.dart
+          cp lib/main.dart tolet_app/lib/main.dart
           cd tolet_app
           flutter pub get
           flutter build apk --release
