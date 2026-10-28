@@ -11,15 +11,12 @@ jobs:
         with:
           flutter-version: '3.22.0'
           channel: 'stable'
-      - name: Build
-        run: |
-          flutter create tolet_app
-          cp lib/main.dart tolet_app/lib/main.dart
-          cd tolet_app
-          flutter pub add image_picker
-          flutter pub get
-          flutter build apk --release
+          cache: true
+      - name: Get dependencies
+        run: flutter pub get
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons
       - uses: actions/upload-artifact@v4
         with:
-          name: ToLetBD-APK
-          path: tolet_app/build/app/outputs/flutter-apk/app-release.apk
+          name: ToLetBD-APK-Facebook-Profile
+          path: build/app/outputs/flutter-apk/app-release.apk
