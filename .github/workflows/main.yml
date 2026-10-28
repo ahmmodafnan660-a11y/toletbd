@@ -11,12 +11,9 @@ jobs:
         with:
           flutter-version: '3.22.0'
           channel: 'stable'
-          cache: true
-      - name: Get dependencies
-        run: flutter pub get
-      - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
+      - run: flutter pub get
+      - run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
-          name: ToLetBD-APK-Facebook-Profile
+          name: ToLetBD-64-Jela-PC-Ready
           path: build/app/outputs/flutter-apk/app-release.apk
