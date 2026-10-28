@@ -16,6 +16,7 @@ jobs:
           flutter create tolet_app
           cp lib/main.dart tolet_app/lib/main.dart
           cd tolet_app
+          flutter pub add image_picker
           flutter pub get
           flutter build apk --release
       - uses: actions/upload-artifact@v4
